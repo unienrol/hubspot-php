@@ -43,7 +43,7 @@ class Timeline extends Endpoint
         ], $eventTypeData),
         ];
 
-        return $this->client->request('put', $endpoint, $data);
+        return $this->client->request('post', $endpoint, $data);
     }
 
     /**
