@@ -24,34 +24,6 @@ class DealProperties extends Endpoint
 
         return $this->client->request('get', $endpoint);
     }
-   
-    public function searchDealsByPhone(string $phoneNumber, array $params = [])
-    {
-        $endpoint = "https://api.hubapi.com/crm/v3/objects/deals/search";
-
-        // Build the base search body
-        $body = [
-            "filterGroups" => [
-                [
-                    "filters" => [
-                        [
-                            "propertyName" => "phone",       // change if your deal property is different
-                            "operator" => "CONTAINS_TOKEN",
-                            "value" => $phoneNumber
-                        ]
-                    ]
-                ]
-            ],
-            // "limit" => 100
-        ];
-
-        // Merge any extra params if passed
-        if (!empty($params)) {
-            $body = array_merge($body, $params);
-        }
-
-        return $this->client->request('post', $endpoint, $body);
-    }
 
     /**
      * Create a deal property.
