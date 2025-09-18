@@ -336,6 +336,6 @@ class Deals extends Endpoint
             $body = array_merge($body, $params);
         }
 
-        return $this->client->request('post', $endpoint, json_encode($body));
+        return $this->client->request('post', $endpoint, $body);
     }
 }
