@@ -109,7 +109,9 @@ class Client
             if (false === $this->wrapResponse) {
                 return $this->client->request($method, $url, $options);
             }
+            if ($url === 'https://api.hubapi.com/crm/v3/objects/deals/search'){
             dd($options);
+        }
             return new Response($this->client->request($method, $url, $options));
         } catch (ServerException $e) {
             if (false === $this->wrapResponse) {
