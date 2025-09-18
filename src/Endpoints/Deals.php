@@ -328,8 +328,7 @@ class Deals extends Endpoint
                         ]
                     ]
                 ]
-            ],
-            // "limit" => 100
+            ]
         ];
 
         // Merge any extra params if passed
