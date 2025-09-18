@@ -329,14 +329,14 @@ class Deals extends Endpoint
                     ]
                 ]
             ],
-            "sorts": [
+            "sorts" => [
                 {
-                "propertyName": "createdate",
-                "direction": "DESCENDING"
+                    "propertyName": "createdate",
+                    "direction": "DESCENDING"
                 }
             ],
-            "limit": 1,
-            "properties": ["dealname", "createdAt", "amount", "contact_number"]
+            "limit" => 1,
+            "properties" => ["dealname", "createdAt", "amount", "contact_number"]
         ];
 
         // Merge any extra params if passed
