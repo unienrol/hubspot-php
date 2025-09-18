@@ -331,6 +331,8 @@ class Deals extends Endpoint
             ]
         ];
 
+        dd(json_encode($body));
+
         // Merge any extra params if passed
         if (!empty($params)) {
             $body = array_merge($body, $params);
