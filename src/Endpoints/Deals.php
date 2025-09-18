@@ -331,13 +331,11 @@ class Deals extends Endpoint
             ]
         ];
 
-        dd(json_encode($body));
-
         // Merge any extra params if passed
         if (!empty($params)) {
             $body = array_merge($body, $params);
         }
 
-        return $this->client->request('post', $endpoint, $body);
+        return $this->client->request('post', $endpoint, json_encode($body));
     }
 }
