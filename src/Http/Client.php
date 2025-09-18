@@ -109,6 +109,7 @@ class Client
             if (false === $this->wrapResponse) {
                 return $this->client->request($method, $url, $options);
             }
+
             return new Response($this->client->request($method, $url, $options));
         } catch (ServerException $e) {
             if (false === $this->wrapResponse) {
