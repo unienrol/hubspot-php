@@ -330,10 +330,10 @@ class Deals extends Endpoint
                 ]
             ],
             "sorts" => [
-                {
+                [
                     "propertyName": "createdate",
                     "direction": "DESCENDING"
-                }
+                ]
             ],
             "limit" => 1,
             "properties" => ["dealname", "createdAt", "amount", "contact_number"]
