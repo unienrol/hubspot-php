@@ -312,19 +312,18 @@ class Deals extends Endpoint
      *
      * @see https://developers.hubspot.com/docs/api-reference/crm-deals-v3/search/post-crm-v3-objects-0-3-search
      */
-    public function searchDealsByPhone(string $phoneNumber, array $params = [])
+    public function filterDealsByProperties(string $filterPropertyName, string $filterPropertyValue, array $params = [])
     {
         $endpoint = "https://api.hubapi.com/crm/v3/objects/deals/search";
 
-        // Build the base search body
         $body = [
             "filterGroups" => [
                 [
                     "filters" => [
                         [
-                            "propertyName" => "contact_number",       // change if your deal property is different
+                            "propertyName" => $filterPropertyName,
                             "operator" => "CONTAINS_TOKEN",
-                            "value" => $phoneNumber
+                            "value" => $filterPropertyValue
                         ]
                     ]
                 ]
@@ -334,12 +333,9 @@ class Deals extends Endpoint
                     "propertyName" => "createdate",
                     "direction" => "DESCENDING"
                 ]
-            ],
-            "limit" => 1,
-            "properties" => ["dealname", "createdAt", "amount", "contact_number"]
+            ]
         ];
 
-        // Merge any extra params if passed
         if (!empty($params)) {
             $body = array_merge($body, $params);
         }
