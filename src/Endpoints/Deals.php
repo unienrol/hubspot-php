@@ -322,7 +322,7 @@ class Deals extends Endpoint
                 [
                     "filters" => [
                         [
-                            "propertyName" => "phone",       // change if your deal property is different
+                            "propertyName" => "contact_number",       // change if your deal property is different
                             "operator" => "CONTAINS_TOKEN",
                             "value" => $phoneNumber
                         ]
