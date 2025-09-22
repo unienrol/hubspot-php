@@ -303,4 +303,19 @@ class Deals extends Endpoint
             build_query_string($params)
         );
     }
+
+    /**
+     * Get deals filtered using phone number.
+     *
+     * @param string $phoneNumber
+     * @param array $params
+     *
+     * @see https://developers.hubspot.com/docs/api-reference/crm-deals-v3/search/post-crm-v3-objects-0-3-search
+     */
+    public function searchDeals(array $params = [])
+    {
+        $endpoint = "https://api.hubapi.com/crm/v3/objects/deals/search";
+
+        return $this->client->request('post', $endpoint, ['json' => $params]);
+    }
 }
