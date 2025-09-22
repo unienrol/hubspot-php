@@ -312,34 +312,10 @@ class Deals extends Endpoint
      *
      * @see https://developers.hubspot.com/docs/api-reference/crm-deals-v3/search/post-crm-v3-objects-0-3-search
      */
-    public function filterDealsByProperties(string $filterPropertyName, string $filterPropertyValue, array $params = [])
+    public function searchDeals(array $params = [])
     {
         $endpoint = "https://api.hubapi.com/crm/v3/objects/deals/search";
 
-        $body = [
-            "filterGroups" => [
-                [
-                    "filters" => [
-                        [
-                            "propertyName" => $filterPropertyName,
-                            "operator" => "CONTAINS_TOKEN",
-                            "value" => $filterPropertyValue
-                        ]
-                    ]
-                ]
-            ],
-            "sorts" => [
-                [
-                    "propertyName" => "createdate",
-                    "direction" => "DESCENDING"
-                ]
-            ]
-        ];
-
-        if (!empty($params)) {
-            $body = array_merge($body, $params);
-        }
-
-        return $this->client->request('post', $endpoint, ['json' => $body]);
+        return $this->client->request('post', $endpoint, ['json' => $params]);
     }
 }
